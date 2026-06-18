@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بازار ساخت‌وساز قزاقستان | گزارش تحلیلی فرصت‌های صادراتی</title>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<style>
+@font-face {
+  font-family: 'Vazir';
+  src: local('Vazirmatn');
+}
+
+:root{
+  --bg: #0b1320;
+  --bg-soft: #101b2d;
+  --panel: #14213a;
+  --panel-2: #182746;
+  --line: rgba(212, 175, 110, 0.16);
+  --line-soft: rgba(255,255,255,0.06);
+  --text: #eef1f6;
+  --text-dim: #97a3b8;
+  --text-faint: #5f6c84;
+  --gold: #d4af6e;
+  --gold-soft: rgba(212, 175, 110, 0.12);
+  --copper: #c4683b;
+  --teal: #4ab8a8;
+  --teal-soft: rgba(74, 184, 168, 0.12);
+  --red: #d4615a;
+  --red-soft: rgba(212, 97, 90, 0.12);
+  --amber: #e0a857;
+  --amber-soft: rgba(224, 168, 87, 0.12);
+  --serif: 'Noto Serif', Georgia, serif;
+  --sans: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+  --mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+*{ box-sizing: border-box; margin:0; padding:0; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.85;
+  font-size: 16px;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 900px 500px at 85% -5%, rgba(212,175,110,0.08), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 5% 30%, rgba(74,184,168,0.05), transparent 60%);
+}
+
+::selection{ background: var(--gold-soft); color: var(--gold); }
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar{ width: 10px; }
+::-webkit-scrollbar-track{ background: var(--bg); }
+::-webkit-scrollbar-thumb{ background: #233152; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover{ background: #2d3e66; }
+
+/* ===== Top progress bar ===== */
+#progress{
+  position: fixed; top:0; right:0; left:0; height: 3px; z-index: 999;
+  background: transparent;
+}
+#progress-fill{
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--copper), var(--gold));
+  transition: width 0.1s linear;
+}
+
+/* ===== Layout ===== */
+.layout{
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ===== Sidebar ===== */
+.sidebar{
+  position: sticky; top:0; height: 100vh;
+  border-left: 1px solid var(--line-soft);
+  padding: 28px 22px;
+  overflow-y: auto;
+  display: flex; flex-direction: column;
+}
+.sidebar-brand{
+  display:flex; align-items:center; gap:10px;
+  margin-bottom: 30px; padding-bottom: 22px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.brand-mark{
+  width: 34px; height: 34px; flex-shrink:0;
+  border: 1.5px solid var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--mono); font-size: 11px; color: var(--gold);
+  transform: rotate(45deg);
+}
+.brand-mark span{ transform: rotate(-45deg); }
+.brand-text{ font-size: 13px; color: var(--text-dim); line-height: 1.4; }
+.brand-text b{ color: var(--text); display:block; font-size: 14px; }
+
+.nav-section-label{
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.5px;
+  color: var(--text-faint); text-transform: uppercase;
+  margin: 18px 0 10px; padding-right: 4px;
+}
+.navlist{ list-style: none; display:flex; flex-direction:column; gap: 2px; }
+.navlist a{
+  display:flex; align-items:center; gap: 10px;
+  color: var(--text-dim); text-decoration: none;
+  font-size: 13.5px; padding: 9px 10px; border-radius: 6px;
+  border-right: 2px solid transparent;
+  transition: all 0.18s ease;
+}
+.navlist a .nnum{ font-family: var(--mono); font-size: 11px; color: var(--text-faint); width: 18px; }
+.navlist a:hover{ color: var(--text); background: rgba(255,255,255,0.025); }
+.navlist a.active{
+  color: var(--gold); background: var(--gold-soft);
+  border-right-color: var(--gold);
+}
+.navlist a.active .nnum{ color: var(--gold); }
+
+.sidebar-foot{
+  margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line-soft);
+}
+.dl-btn{
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  width: 100%; padding: 11px 14px; margin-bottom:10px;
+  background: linear-gradient(135deg, var(--copper), #a8542e);
+  color: #fff; border:none; border-radius: 7px;
+  font-family: var(--sans); font-size: 13.5px; font-weight: 600;
+  cursor: pointer; transition: filter 0.2s ease, transform 0.2s ease;
+}
+.dl-btn:hover{ filter: brightness(1.12); transform: translateY(-1px); }
+.dl-btn svg{ width:15px; height:15px; }
+.foot-meta{ font-size: 11px; color: var(--text-faint); text-align:center; line-height:1.6; }
+
+/* ===== Main ===== */
+.main{ padding: 0; min-width: 0; }
+
+/* ===== Hero ===== */
+.hero{
+  position: relative;
+  padding: 90px 64px 70px;
+  border-bottom: 1px solid var(--line-soft);
+  overflow: hidden;
+}
+.hero::before{
+  content:''; position:absolute; inset:0;
+  background-image: linear-gradient(var(--line-soft) 1px, transparent 1px), linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 900px 500px at 70% 0%, black, transparent 70%);
+  mask-image: radial-gradient(ellipse 900px 500px at 70% 0%, black, transparent 70%);
+  opacity: 0.5;
+}
+.hero-eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: 1.2px;
+  color: var(--gold); text-transform: uppercase;
+  padding: 6px 14px; border: 1px solid var(--line); border-radius: 100px;
+  background: var(--gold-soft); margin-bottom: 26px; position: relative;
+}
+.hero-eyebrow::before{
+  content:''; width:6px; height:6px; border-radius:50%; background: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
+}
+.hero h1{
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(34px, 4.4vw, 54px);
+  line-height: 1.32; color: var(--text); position: relative;
+  max-width: 880px; margin-bottom: 22px;
+}
+.hero h1 em{ font-style: normal; color: var(--gold); }
+.hero-sub{
+  font-size: 17px; color: var(--text-dim); max-width: 720px;
+  line-height: 1.9; position: relative; margin-bottom: 36px;
+}
+.hero-meta{
+  display:flex; gap: 28px; flex-wrap: wrap; position: relative;
+}
+.hero-meta-item{ display:flex; flex-direction: column; gap: 4px; }
+.hero-meta-item .lbl{ font-family: var(--mono); font-size: 10.5px; color: var(--text-faint); letter-spacing: 1px; text-transform: uppercase;}
+.hero-meta-item .val{ font-size: 14px; color: var(--text); }
+
+/* ===== Stat strip ===== */
+.statstrip{
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--line-soft);
+}
+.stat{
+  padding: 30px 28px; border-left: 1px solid var(--line-soft);
+  position: relative; overflow:hidden;
+}
+.stat:last-child{ border-left: none; }
+.stat .big{
+  font-family: var(--serif); font-size: 32px; color: var(--gold);
+  display:flex; align-items:baseline; gap: 4px; margin-bottom: 6px;
+}
+.stat .big .unit{ font-size: 16px; color: var(--text-dim); font-family: var(--sans); }
+.stat .lbl{ font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+.stat .trend{ font-size: 11px; color: var(--teal); margin-top: 8px; font-family: var(--mono); }
+
+/* ===== Sections ===== */
+.section{
+  padding: 64px 64px 10px;
+  border-bottom: 1px solid var(--line-soft);
+  scroll-margin-top: 20px;
+}
+.section:last-of-type{ border-bottom: none; }
+
+.section-head{
+  display:flex; align-items: baseline; gap: 16px;
+  margin-bottom: 8px;
+}
+.section-num{
+  font-family: var(--mono); font-size: 14px; color: var(--gold);
+  border: 1px solid var(--line); padding: 3px 10px; border-radius: 4px;
+}
+.section-head h2{
+  font-family: var(--serif); font-weight: 600; font-size: 28px; color: var(--text);
+}
+.section-intro{
+  color: var(--text-dim); font-size: 15.5px; max-width: 780px; margin: 18px 0 34px;
+  line-height: 1.9;
+}
+
+.subhead{
+  font-family: var(--serif); font-size: 19px; color: var(--gold);
+  margin: 36px 0 14px; display:flex; align-items:center; gap:10px;
+}
+.subhead::before{ content:''; width:3px; height: 18px; background: var(--gold); border-radius: 2px; }
+
+p.body-text{
+  color: #cdd5e3; font-size: 15.5px; line-height: 1.95; margin-bottom: 16px; max-width: 820px;
+}
+p.body-text b{ color: var(--text); font-weight: 600; }
+p.body-text q, p.body-text .quote{ color: var(--amber); font-style: normal; }
+
+ul.bullets{ list-style:none; display:flex; flex-direction:column; gap:10px; margin: 16px 0 24px; max-width: 820px;}
+ul.bullets li{
+  position: relative; padding-right: 22px; color: #cdd5e3; font-size: 15px; line-height: 1.8;
+}
+ul.bullets li::before{
+  content:''; position:absolute; right:0; top: 9px; width: 6px; height: 6px;
+  background: var(--teal); border-radius: 1px; transform: rotate(45deg);
+}
+ul.bullets li b{ color: var(--text); }
+
+ol.steps{ list-style:none; display:flex; flex-direction:column; gap:18px; margin: 20px 0; max-width: 850px; counter-reset: stepnum; }
+ol.steps li{
+  position:relative; padding-right: 50px; padding-bottom: 4px;
+  color: #cdd5e3; font-size: 15px; line-height: 1.85;
+}
+ol.steps li::before{
+  counter-increment: stepnum; content: counter(stepnum);
+  position:absolute; right:0; top:-2px; width: 34px; height: 34px;
+  border: 1px solid var(--gold); color: var(--gold);
+  border-radius: 50%; display:flex; align-items:center; justify-content:center;
+  font-family: var(--mono); font-size: 14px; background: var(--gold-soft);
+}
+ol.steps li b{ color: var(--gold); }
+ol.steps li:not(:last-child)::after{
+  content:''; position:absolute; right: 16.5px; top: 36px; width:1px; height: calc(100% - 22px);
+  background: var(--line);
+}
+
+/* ===== Quote callout ===== */
+.callout{
+  border-right: 3px solid var(--gold);
+  background: linear-gradient(90deg, var(--gold-soft), transparent);
+  padding: 20px 26px; margin: 22px 0; border-radius: 0 8px 8px 0;
+  max-width: 800px;
+}
+.callout p{ color: var(--text); font-size: 15px; font-style: normal; line-height: 1.85; }
+.callout cite{ display:block; margin-top: 10px; font-size: 12.5px; color: var(--text-faint); font-style: normal; font-family: var(--mono); }
+
+.callout.danger{ border-color: var(--red); background: linear-gradient(90deg, var(--red-soft), transparent); }
+.callout.info{ border-color: var(--teal); background: linear-gradient(90deg, var(--teal-soft), transparent); }
+
+/* ===== Tables ===== */
+.table-wrap{
+  overflow-x: auto; margin: 18px 0 28px; border: 1px solid var(--line-soft);
+  border-radius: 10px; background: var(--panel);
+}
+table{ width: 100%; border-collapse: collapse; font-size: 14px; min-width: 560px; }
+thead tr{ background: var(--panel-2); }
+th{
+  text-align: right; padding: 14px 18px; font-weight: 600; color: var(--gold);
+  font-size: 13px; border-bottom: 1px solid var(--line);
+  white-space: nowrap; cursor: pointer; user-select: none;
+  font-family: var(--sans);
+}
+th:hover{ color: #fff; }
+th .arrow{ font-size: 10px; margin-right: 4px; opacity: 0.5; }
+td{
+  padding: 13px 18px; border-bottom: 1px solid var(--line-soft);
+  color: #cdd5e3;
+}
+tbody tr:last-child td{ border-bottom: none; }
+tbody tr{ transition: background 0.15s ease; }
+tbody tr:hover{ background: rgba(255,255,255,0.025); }
+tbody tr:nth-child(even){ background: rgba(255,255,255,0.012); }
+tbody tr:nth-child(even):hover{ background: rgba(255,255,255,0.03); }
+
+.badge{
+  display: inline-block; padding: 3px 11px; border-radius: 100px;
+  font-size: 12px; font-weight: 600; white-space: nowrap;
+}
+.badge.b-high{ background: var(--red-soft); color: var(--red); }
+.badge.b-vhigh{ background: var(--red-soft); color: var(--red); border:1px solid var(--red); }
+.badge.b-med{ background: var(--amber-soft); color: var(--amber); }
+.badge.b-low{ background: var(--teal-soft); color: var(--teal); }
+.badge.p-1{ background: var(--gold); color: #1a1305; }
+.badge.p-2{ background: var(--amber-soft); color: var(--amber); }
+.badge.p-3{ background: var(--teal-soft); color: var(--teal); }
+.badge.p-4{ background: rgba(255,255,255,0.08); color: var(--text-dim); }
+
+/* ===== Opportunity cards / matrix ===== */
+.opp-grid{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin: 24px 0 34px;
+}
+.opp-card{
+  background: var(--panel); border:1px solid var(--line-soft); border-radius: 10px;
+  padding: 18px 20px; cursor: pointer; transition: all 0.2s ease;
+  position: relative; overflow: hidden;
+}
+.opp-card::before{
+  content:''; position:absolute; top:0; right:0; width: 4px; height:100%;
+  background: var(--gold); opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.opp-card:hover{ border-color: var(--line); transform: translateY(-2px); background: var(--panel-2); }
+.opp-card.active{ border-color: var(--gold); }
+.opp-card.active::before{ opacity: 1; }
+.opp-card .oc-top{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; }
+.opp-card h4{ font-family: var(--serif); font-size: 16px; color: var(--text); }
+.opp-card .oc-priority{ font-family: var(--mono); font-size: 10px; color: var(--text-faint); }
+.opp-card .oc-bar-track{ height: 5px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow:hidden; margin-top:12px; }
+.opp-card .oc-bar-fill{ height:100%; background: linear-gradient(90deg, var(--copper), var(--gold)); border-radius: 3px; }
+.opp-card .oc-bar-label{ font-size: 10.5px; color: var(--text-faint); margin-top: 5px; font-family: var(--mono); }
+
+.opp-detail{
+  background: var(--panel-2); border: 1px solid var(--gold); border-radius: 10px;
+  padding: 26px 28px; margin-bottom: 30px; display:none;
+}
+.opp-detail.show{ display:block; animation: fadein 0.3s ease; }
+@keyframes fadein{ from{opacity:0; transform: translateY(-6px);} to{opacity:1; transform:translateY(0);} }
+.opp-detail h3{ font-family: var(--serif); color: var(--gold); font-size: 20px; margin-bottom: 14px; }
+.opp-detail p{ color: #cdd5e3; font-size: 14.5px; line-height: 1.85; margin-bottom: 14px; }
+.opp-detail-stats{ display:flex; gap: 30px; margin-top: 18px; flex-wrap:wrap; }
+.opp-detail-stats .ods{ display:flex; flex-direction:column; gap:4px; }
+.opp-detail-stats .ods .l{ font-size:11px; color:var(--text-faint); font-family: var(--mono); text-transform:uppercase; letter-spacing:0.5px; }
+.opp-detail-stats .ods .v{ font-size: 14px; color: var(--text); }
+
+/* ===== Risk grid ===== */
+.risk-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 22px 0 30px; }
+.risk-card{
+  background: var(--panel); border:1px solid var(--line-soft); border-radius: 10px; padding: 20px 22px;
+  border-top: 3px solid var(--text-faint);
+}
+.risk-card.legal{ border-top-color: var(--copper); }
+.risk-card.logistics{ border-top-color: var(--amber); }
+.risk-card.currency{ border-top-color: var(--red); }
+.risk-card.execution{ border-top-color: var(--teal); }
+.risk-card h4{ font-family: var(--serif); font-size: 16px; margin-bottom: 12px; color: var(--text); display:flex; align-items:center; gap:8px;}
+.risk-card ul{ list-style:none; display:flex; flex-direction:column; gap:8px; }
+.risk-card li{ font-size: 13.5px; color: var(--text-dim); line-height: 1.7; position:relative; padding-right:16px; }
+.risk-card li::before{ content:'—'; position:absolute; right:0; color: var(--text-faint); }
+
+/* ===== Progress / capacity visual ===== */
+.capacity-viz{
+  background: var(--panel); border: 1px solid var(--line-soft); border-radius: 10px;
+  padding: 28px 30px; margin: 20px 0 30px;
+}
+.cap-row{ margin-bottom: 22px; }
+.cap-row:last-child{ margin-bottom: 0; }
+.cap-row-label{ display:flex; justify-content:space-between; font-size: 13px; color: var(--text-dim); margin-bottom: 8px; }
+.cap-row-label b{ color: var(--text); font-family: var(--mono); }
+.cap-track{ height: 14px; background: rgba(255,255,255,0.05); border-radius: 7px; overflow:hidden; position:relative; }
+.cap-fill{ height:100%; border-radius:7px; background: linear-gradient(90deg, var(--teal), #5cd6c4); position:relative; transition: width 1.2s cubic-bezier(.16,1,.3,1); width:0%; }
+.cap-fill.phase2{ background: linear-gradient(90deg, var(--copper), var(--gold)); }
+.cap-fill.target{ background: repeating-linear-gradient(45deg, rgba(255,255,255,0.12), rgba(255,255,255,0.12) 8px, rgba(255,255,255,0.04) 8px, rgba(255,255,255,0.04) 16px); }
+
+/* ===== Toggle / accordion for supply chain ===== */
+.acc{ border: 1px solid var(--line-soft); border-radius: 10px; overflow:hidden; margin: 18px 0 28px; }
+.acc-item{ border-bottom: 1px solid var(--line-soft); background: var(--panel); }
+.acc-item:last-child{ border-bottom:none; }
+.acc-head{
+  display:flex; justify-content:space-between; align-items:center;
+  padding: 16px 22px; cursor:pointer; user-select:none;
+}
+.acc-head:hover{ background: rgba(255,255,255,0.02); }
+.acc-head h4{ font-size: 15px; color: var(--text); font-weight: 600; display:flex; align-items:center; gap:12px; }
+.acc-head .chev{ transition: transform 0.25s ease; color: var(--text-faint); font-size: 12px; }
+.acc-item.open .chev{ transform: rotate(180deg); color: var(--gold); }
+.acc-body{ max-height:0; overflow:hidden; transition: max-height 0.3s ease; }
+.acc-item.open .acc-body{ max-height: 300px; }
+.acc-body-inner{ padding: 0 22px 20px; color: var(--text-dim); font-size: 14px; line-height: 1.8; }
+
+/* ===== Footer ===== */
+.report-footer{
+  padding: 48px 64px 60px;
+  text-align: center;
+}
+.report-footer p{ color: var(--text-faint); font-size: 12.5px; max-width: 600px; margin: 0 auto; line-height: 1.8; }
+.report-footer .fmark{ font-family: var(--mono); color: var(--text-faint); font-size: 11px; margin-bottom:16px; letter-spacing:1px; }
+
+/* ===== Mobile nav toggle ===== */
+.mobile-bar{ display:none; }
+
+/* ===== Responsive ===== */
+@media (max-width: 980px){
+  .layout{ grid-template-columns: 1fr; }
+  .sidebar{
+    position: fixed; right: -300px; top:0; width: 280px; z-index: 1000;
+    background: var(--bg-soft); transition: right 0.3s ease;
+    border-left: 1px solid var(--line);
+    box-shadow: -20px 0 40px rgba(0,0,0,0.4);
+  }
+  .sidebar.open{ right: 0; }
+  .mobile-bar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 16px 20px; border-bottom: 1px solid var(--line-soft);
+    position: sticky; top:0; background: rgba(11,19,32,0.92); backdrop-filter: blur(8px); z-index: 500;
+  }
+  .mobile-bar .mb-title{ font-family: var(--serif); font-size: 15px; color: var(--gold); }
+  .mobile-bar button{
+    background: var(--panel); border: 1px solid var(--line); color: var(--text);
+    width: 38px; height: 38px; border-radius: 8px; cursor:pointer; font-size: 16px;
+  }
+  .hero{ padding: 50px 24px 40px; }
+  .section{ padding: 44px 24px 6px; }
+  .statstrip{ grid-template-columns: repeat(2,1fr); }
+  .stat{ border-bottom: 1px solid var(--line-soft); }
+  .opp-grid{ grid-template-columns: 1fr; }
+  .risk-grid{ grid-template-columns: 1fr; }
+  .report-footer{ padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress"><div id="progress-fill"></div></div>
+
+<div class="mobile-bar">
+  <span class="mb-title">دره ٌCOD اکیباستوز</span>
+  <button id="navToggle" aria-label="باز کردن فهرست">☰</button>
+</div>
+
+<div class="layout">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark"><span>KZ</span></div>
+      <div class="brand-text"><b>گزارش تحلیلی صادراتی</b>بازار ساخت‌وساز قزاقستان</div>
+    </div>
+
+    <div class="nav-section-label">فهرست گزارش</div>
+    <ul class="navlist" id="navlist">
+      <li><a href="#sec-summary"><span class="nnum">۰۱</span> خلاصه مدیریتی</a></li>
+      <li><a href="#sec-current"><span class="nnum">۰۲</span> وضعیت فعلی صنعت</a></li>
+      <li><a href="#sec-drivers"><span class="nnum">۰۳</span> محرک‌های رشد</a></li>
+      <li><a href="#sec-supply"><span class="nnum">۰۴</span> زنجیره تأمین</a></li>
+      <li><a href="#sec-opportunities"><span class="nnum">۰۵</span> فرصت‌های صادراتی</a></li>
+      <li><a href="#sec-risks"><span class="nnum">۰۶</span> ریسک‌ها و محدودیت‌ها</a></li>
+      <li><a href="#sec-strategy"><span class="nnum">۰۷</span> جمع‌بندی استراتژیک</a></li>
+    </ul>
+
+    <div class="sidebar-foot">
+      <div class="foot-meta">منتشرشده: خرداد ۱۴۰۵ &nbsp;|&nbsp; ژوئن ۲۰۲۶<br>محرمانه — کاربرد مدیریتی</div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main">
+
+    <!-- HERO -->
+    <section class="hero">
+      <span class="hero-eyebrow">گزارش تحلیلی و استراتژیک · ژوئن ۲۰۲۶</span>
+      <h1>بازار ساخت‌وساز قزاقستان و <em>فرصت‌های صادراتی</em> مصالح ساختمانی</h1>
+      <p class="hero-sub">
+        در پی امضای قرارداد ۱۰ میلیارد دلاری قزاقستان با Firebird و NVIDIA برای پروژه «دره مراکز پردازش داده» در اکیباستوز،
+        این گزارش زنجیره تأمین مصالح ساختمانی، نقاط کمبود احتمالی و مسیرهای ورود برای صادرکنندگان منطقه‌ای — به‌ویژه ایران — را تحلیل می‌کند.
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><span class="lbl">منبع خبر</span><span class="val">Forbes Kazakhstan، ۱۵ ژوئن ۲۰۲۶</span></div>
+        <div class="hero-meta-item"><span class="lbl">حوزه تحلیل</span><span class="val">ساخت‌وساز صنعتی و مصالح</span></div>
+        <div class="hero-meta-item"><span class="lbl">افق زمانی</span><span class="val">۲۰۲۶ تا ۲۰۲۸</span></div>
+      </div>
+    </section>
+
+    <!-- STAT STRIP -->
+    <section class="statstrip">
+      <div class="stat">
+        <div class="big">۱۰<span class="unit">میلیارد دلار</span></div>
+        <div class="lbl">حجم کل سرمایه‌گذاری در پروژه دره مراکز پردازش داده</div>
+      </div>
+      <div class="stat">
+        <div class="big">۱<span class="unit">گیگاوات</span></div>
+        <div class="lbl">ظرفیت هدف انرژی (از ۳۰۰ مگاوات فعلی)</div>
+      </div>
+      <div class="stat">
+        <div class="big">۳<span class="unit">میلیارد دلار / سال</span></div>
+        <div class="lbl">درآمد صادراتی پیش‌بینی‌شده پروژه</div>
+      </div>
+      <div class="stat">
+        <div class="big">۲۰۲۷<span class="unit"></span></div>
+        <div class="lbl">سال هدف برای راه‌اندازی کامل پروژه</div>
+      </div>
+    </section>
+
+    <!-- 1. EXECUTIVE SUMMARY -->
+    <section class="section" id="sec-summary">
+      <div class="section-head"><span class="section-num">۰۱</span><h2>خلاصه مدیریتی</h2></div>
+      <p class="body-text">
+        قزاقستان در ژوئن ۲۰۲۶ با امضای بسته‌ای ۱۰ میلیارد دلاری با شرکت‌های Firebird و NVIDIA در حوزه زیرساخت هوش مصنوعی،
+        خود را به‌عنوان یکی از مهم‌ترین قطب‌های دیجیتال اوراسیا معرفی کرده است. پروژه <b>«دره مراکز پردازش داده»</b> در شهر
+        اکیباستوز با ظرفیت فعلی ۳۰۰ مگاوات و برنامه توسعه تا ۱ گیگاوات، یک محرک فوق‌العاده برای رشد ساخت‌وساز صنعتی،
+        زیرساختی و انرژی در این کشور محسوب می‌شود.
+      </p>
+      <p class="body-text">
+        این قرارداد که شامل استقرار <b>۱۰۰ هزار چیپ GPU</b> نسل جدید NVIDIA (شامل GB300 و Vera Rubin) می‌شود،
+        حداقل ۳ میلیارد دلار درآمد صادراتی سالانه برای قزاقستان پیش‌بینی می‌کند. اجرای این پروژه در دو فاز
+        (۱۰۹ مگاوات و ۱۳۶ مگاوات) نیازمند حجم عظیمی از مصالح ساختمانی، تجهیزات زیرساختی و خدمات مهندسی است.
+      </p>
+      <p class="body-text">
+        زیرساخت این پروژه کاملاً توسط طرف قزاقستانی (کازاختلکام) تأمین می‌شود که این امر بازار بزرگی از نیاز به مصالح
+        ساختمانی داخلی و وارداتی ایجاد می‌کند. فرصت‌های صادراتی برای تأمین‌کنندگان منطقه‌ای، به‌ویژه ایران، در حوزه‌های
+        سیمان، سنگ‌های ساختمانی، سرامیک، عایق‌بندی، لوله و اتصالات و مواد شیمیایی ساختمانی بسیار قابل توجه است.
+      </p>
+      <div class="callout">
+        <p>با توجه به برنامه راه‌اندازی در سال ۲۰۲۷، پنجره زمانی برای ورود به این بازار اکنون باز است و نقطه اوج تقاضا
+        طی سال‌های ۲۰۲۶ تا ۲۰۲۸ خواهد بود.</p>
+      </div>
+    </section>
+
+    <!-- 2. CURRENT STATE -->
+    <section class="section" id="sec-current">
+      <div class="section-head"><span class="section-num">۰۲</span><h2>وضعیت فعلی صنعت ساخت‌وساز در قزاقستان</h2></div>
+
+      <div class="subhead">محرک اصلی: پروژه دره مراکز پردازش داده اکیباستوز</div>
+      <p class="body-text">
+        بر اساس خبر مورد بررسی (۱۵ ژوئن ۲۰۲۶)، قزاقستان بسته‌ای ۱۰ میلیارد دلاری در حوزه هوش مصنوعی و زیرساخت دیجیتال
+        امضا کرده است. این بزرگ‌ترین قرارداد تکنولوژیک در تاریخ این کشور محسوب می‌شود و اثرات فوری آن بر بازار
+        ساخت‌وساز صنعتی و انرژی قابل پیش‌بینی است.
+      </p>
+
+      <div class="capacity-viz" id="capViz">
+        <div class="cap-row">
+          <div class="cap-row-label"><span>ظرفیت فعلی پروژه</span><b>۳۰۰ مگاوات</b></div>
+          <div class="cap-track"><div class="cap-fill" data-w="30"></div></div>
+        </div>
+        <div class="cap-row">
+          <div class="cap-row-label"><span>فاز اول (Phase 1)</span><b>۱۰۹ مگاوات</b></div>
+          <div class="cap-track"><div class="cap-fill phase2" data-w="10.9"></div></div>
+        </div>
+        <div class="cap-row">
+          <div class="cap-row-label"><span>فاز دوم (Phase 2)</span><b>۱۳۶ مگاوات</b></div>
+          <div class="cap-track"><div class="cap-fill phase2" data-w="13.6"></div></div>
+        </div>
+        <div class="cap-row">
+          <div class="cap-row-label"><span>ظرفیت هدف نهایی</span><b>۱۰۰۰ مگاوات (۱ گیگاوات)</b></div>
+          <div class="cap-track"><div class="cap-fill target" data-w="100"></div></div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="paramTable">
+          <thead><tr><th>پارامتر پروژه</th><th>مقدار و جزئیات</th></tr></thead>
+          <tbody>
+            <tr><td>حجم کل سرمایه‌گذاری</td><td>۱۰ میلیارد دلار آمریکا</td></tr>
+            <tr><td>تعداد چیپ GPU</td><td>۱۰۰ هزار عدد (NVIDIA GB300 و Vera Rubin)</td></tr>
+            <tr><td>درآمد صادراتی پیش‌بینی‌شده</td><td>حداقل ۳ میلیارد دلار در سال</td></tr>
+            <tr><td>تاریخ هدف راه‌اندازی</td><td>۲۰۲۷</td></tr>
+            <tr><td>تأمین زیرساخت</td><td>کازاختلکام (طرف قزاقستانی)</td></tr>
+            <tr><td>شریک تجهیزات</td><td>Firebird (آمریکا) و NVIDIA</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subhead">موقعیت راهبردی در اقتصاد غیرنفتی</div>
+      <p class="body-text">
+        نخست‌وزیر قزاقستان الجاس بکتنوف توسعه هوش مصنوعی و زیرساخت دیجیتال را یکی از اولویت‌های اصلی کشور معرفی کرده
+        است. این رویکرد در چارچوب استراتژی کلی‌تر کاهش وابستگی به نفت و تنوع‌بخشی به اقتصاد قزاقستان قرار دارد.
+      </p>
+      <div class="callout">
+        <p>«قزاقستان انرژی دارد و می‌تواند بیشتر هم تولید کند — این یک نقطه شروع عالی است.»</p>
+        <cite>رو لبارِدیان، معاون رئیس NVIDIA</cite>
+      </div>
+      <p class="body-text">
+        معاون نخست‌وزیر و وزیر هوش مصنوعی ژاسلان مادیف تصریح کرده که پروژه دره مراکز پردازش داده یکی از پلتفرم‌های
+        کلیدی اقتصاد جدید توکن‌های هوش مصنوعی خواهد بود. مزیت رقابتی قزاقستان شامل ذخایر زمین وسیع، انرژی ارزان و
+        رقابتی، مشوق‌های سرمایه‌گذاری دولتی، و موقعیت جغرافیایی مرکزی در اوراسیا است.
+      </p>
+    </section>
+
+    <!-- 3. GROWTH DRIVERS -->
+    <section class="section" id="sec-drivers">
+      <div class="section-head"><span class="section-num">۰۳</span><h2>محرک‌های رشد ساخت‌وساز</h2></div>
+
+      <div class="subhead">پروژه‌های دولتی و دیجیتال</div>
+      <p class="body-text">بزرگ‌ترین محرک کوتاه‌مدت رشد ساخت‌وساز، اجرای پروژه «دره مراکز پردازش داده» است:</p>
+      <ul class="bullets">
+        <li>احداث سالن‌های سرور و مراکز داده در مقیاس چند استادیوم فوتبال</li>
+        <li>ساخت زیرساخت انرژی برای تأمین ۳۰۰ مگاوات تا ۱ گیگاوات</li>
+        <li>توسعه شبکه‌های انتقال داده و فیبرنوری</li>
+        <li>احداث ساختمان‌های مسکونی و رفاهی برای کارکنان پروژه</li>
+      </ul>
+
+      <div class="subhead">توسعه شهری و صنعتی</div>
+      <p class="body-text">پروژه در شهر اکیباستوز (استان پاولودار) اجرا می‌شود. این شهر تاریخاً یک مرکز صنعتی و انرژی بوده و پروژه جدید می‌تواند توسعه شهری گسترده‌ای را در این منطقه تحریک کند:</p>
+      <ul class="bullets">
+        <li>ساخت خوابگاه‌ها و مجتمع‌های اداری برای تیم‌های فنی</li>
+        <li>توسعه جاده‌ها و شبکه حمل‌ونقل برای انتقال تجهیزات سنگین</li>
+        <li>احداث تأسیسات جانبی شامل انبارها، ایستگاه‌های برق و شبکه‌های آب</li>
+      </ul>
+
+      <div class="subhead">سرمایه‌گذاری جانبی</div>
+      <div class="callout info">
+        <p>بر اساس تحلیل اقتصادی، یک پروژه ۱۰ میلیارد دلاری در حوزه فناوری در یک منطقه معمولاً ۲ تا ۳ برابر ارزش خود
+        سرمایه‌گذاری مکمل (مسکن، تجارت، خدمات، حمل‌ونقل) ایجاد می‌کند. این یعنی حجم کل فعالیت ساختمانی ناشی از این
+        پروژه می‌تواند به <b>۲۰ تا ۳۰ میلیارد دلار</b> برسد.</p>
+      </div>
+    </section>
+
+    <!-- 4. SUPPLY CHAIN -->
+    <section class="section" id="sec-supply">
+      <div class="section-head"><span class="section-num">۰۴</span><h2>تحلیل زنجیره تأمین ساخت‌وساز</h2></div>
+      <p class="section-intro">
+        قزاقستان در حوزه مصالح ساختمانی پایه مانند سیمان دارای ظرفیت تولید داخلی است، اما این ظرفیت برای یک پروژه در
+        مقیاس ۱۰ میلیارد دلار کافی نخواهد بود. روی هر ردیف کلیک کنید تا جزئیات بیشتر را ببینید.
+      </p>
+
+      <div class="acc" id="supplyAcc">
+        <div class="acc-item">
+          <div class="acc-head"><h4>سیمان <span class="badge b-med">متوسط تا خوب</span></h4><span class="chev">▾</span></div>
+          <div class="acc-body"><div class="acc-body-inner">ظرفیت تولید داخلی نسبتاً مناسب، اما احتمال کمبود موضعی در اوج اجرای پروژه (۲۰۲۶–۲۰۲۷) با توجه به همزمانی چندین پروژه بزرگ زیرساختی در کشور وجود دارد.</div></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head"><h4>سنگ ساختمانی <span class="badge b-high">محدود</span></h4><span class="chev">▾</span></div>
+          <div class="acc-body"><div class="acc-body-inner">تولید داخلی سنگ‌های تزئینی (مرمر، تراورتن، گرانیت) محدود است؛ وابستگی بالا به واردات از کشورهایی مانند ایران و ترکیه پیش‌بینی می‌شود.</div></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head"><h4>سرامیک و کاشی <span class="badge b-high">محدود</span></h4><span class="chev">▾</span></div>
+          <div class="acc-body"><div class="acc-body-inner">ظرفیت تولید داخلی قزاقستان در سرامیک ساختمانی پاسخگوی حجم پروژه نیست؛ وابستگی بالا به واردات از کشورهای منطقه از جمله ایران.</div></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head"><h4>شیشه ساختمانی <span class="badge b-vhigh">ضعیف</span></h4><span class="chev">▾</span></div>
+          <div class="acc-body"><div class="acc-body-inner">صنعت شیشه ساختمانی قزاقستان توسعه‌نیافته است و واردات برای تأمین نیاز پروژه‌های صنعتی این مقیاس ضروری خواهد بود.</div></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head"><h4>عایق صنعتی <span class="badge b-vhigh">بسیار محدود</span></h4><span class="chev">▾</span></div>
+          <div class="acc-body"><div class="acc-body-inner">مراکز داده نیازمند عایق‌بندی حرارتی و صوتی با مشخصات فنی دقیق هستند؛ این یکی از حساس‌ترین حلقه‌های وارداتی پروژه است.</div></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head"><h4>مواد شیمیایی ساختمانی <span class="badge b-vhigh">ضعیف</span></h4><span class="chev">▾</span></div>
+          <div class="acc-body"><div class="acc-body-inner">افزودنی‌های بتن، رزین‌های ضدآب و چسب‌های صنعتی عمدتاً وارداتی هستند؛ تولید داخلی این حوزه توسعه‌نیافته است.</div></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head"><h4>لوله‌های پلاستیکی <span class="badge b-med">متوسط</span></h4><span class="chev">▾</span></div>
+          <div class="acc-body"><div class="acc-body-inner">تولید داخلی موجود است اما در اوج پروژه احتمال تقاضای مازاد بر ظرفیت تولید داخلی وجود دارد.</div></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head"><h4>فلزات ساختمانی (فولاد) <span class="badge b-low">خوب</span></h4><span class="chev">▾</span></div>
+          <div class="acc-body"><div class="acc-body-inner">قزاقستان در فولاد ساختمانی نسبتاً خودکفاست؛ وابستگی وارداتی تنها در سطح جزئی و برای مقاطع تخصصی وجود دارد.</div></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head"><h4>گچ و پودرهای معدنی <span class="badge b-high">محدود</span></h4><span class="chev">▾</span></div>
+          <div class="acc-body"><div class="acc-body-inner">ظرفیت تولید داخلی محدود است و در صورت رشد سریع تقاضا، احتمال واردات افزایش می‌یابد.</div></div>
+        </div>
+      </div>
+
+      <div class="callout danger">
+        <p><b>نکته کلیدی:</b> پروژه «دره مراکز پردازش داده» یک پروژه صنعتی با مشخصات فنی بالاست. این نوع پروژه‌ها نیاز به
+        مصالحی با استانداردهای دقیق فنی دارند که اغلب تولیدکنندگان داخلی قزاقستان قادر به تأمین کامل آن نیستند.
+        بنابراین وابستگی به واردات در این پروژه بیشتر از پروژه‌های ساختمانی معمولی خواهد بود.</p>
+      </div>
+    </section>
+
+    <!-- 5. EXPORT OPPORTUNITIES -->
+    <section class="section" id="sec-opportunities">
+      <div class="section-head"><span class="section-num">۰۵</span><h2>فرصت‌های صادراتی بازار ساخت‌وساز قزاقستان</h2></div>
+      <p class="section-intro">این بخش کلیدی‌ترین بخش گزارش است. روی هر کارت کلیک کنید تا تحلیل کامل آن کالا نمایش داده شود.</p>
+
+      <div class="opp-grid" id="oppGrid"></div>
+      <div class="opp-detail" id="oppDetail"></div>
+
+      <div class="subhead">ماتریس کامل فرصت‌های صادراتی (قابل مرتب‌سازی)</div>
+      <p class="body-text" style="margin-bottom:10px;">روی عنوان هر ستون کلیک کنید تا جدول بر اساس آن مرتب شود.</p>
+      <div class="table-wrap">
+        <table id="oppTable">
+          <thead>
+            <tr>
+              <th data-key="name">کالا <span class="arrow">⇅</span></th>
+              <th data-key="demand">سطح تقاضا <span class="arrow">⇅</span></th>
+              <th data-key="shortage">کمبود داخلی قزاقستان <span class="arrow">⇅</span></th>
+              <th data-key="potential">پتانسیل صادراتی ایران <span class="arrow">⇅</span></th>
+              <th data-key="priority">اولویت <span class="arrow">⇅</span></th>
+            </tr>
+          </thead>
+          <tbody id="oppTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 6. RISKS -->
+    <section class="section" id="sec-risks">
+      <div class="section-head"><span class="section-num">۰۶</span><h2>ریسک‌ها و محدودیت‌های ورود به بازار</h2></div>
+
+      <div class="risk-grid">
+        <div class="risk-card legal">
+          <h4>⚖️ ریسک‌های تجاری و قانونی</h4>
+          <ul>
+            <li>الزام به استانداردهای GOST روسیه برای محصولات وارداتی</li>
+            <li>عضویت قزاقستان در اتحادیه اقتصادی اوراسیا (EAEU) و ترجیح کالاهای داخل اتحادیه</li>
+            <li>رقابت جدی چین با توان مالی بالا و زنجیره تأمین کامل</li>
+          </ul>
+        </div>
+        <div class="risk-card logistics">
+          <h4>🚚 ریسک‌های لجستیکی</h4>
+          <ul>
+            <li>هزینه بالای حمل‌ونقل از مسیر ترکمنستان یا دریای خزر</li>
+            <li>محدودیت‌های گمرکی و عوارض ترانزیت ترکمنستان</li>
+            <li>ظرفیت محدود بنادر خزر و نیاز به ترانشیپ</li>
+            <li>راه‌حل پیشنهادی: کریدور میانی از طریق باکو – تفلیس – قزاقستان</li>
+          </ul>
+        </div>
+        <div class="risk-card currency">
+          <h4>💱 ریسک‌های ارزی و مالی</h4>
+          <ul>
+            <li>پیچیدگی تراکنش‌های ریالی/دلاری ایران و قزاقستان</li>
+            <li>نوسان تنگه (ارز ملی قزاقستان) و اثر آن بر سودآوری</li>
+            <li>الزام احتمالی به تسویه با یوان یا روبل به‌جای دلار</li>
+          </ul>
+        </div>
+        <div class="risk-card execution">
+          <h4>🏗️ ریسک‌های اجرایی</h4>
+          <ul>
+            <li>نیاز به نمایندگی محلی برای پشتیبانی فروش و اخذ مجوزها</li>
+            <li>رقابت شدید روسیه به‌ویژه در عایق و مواد شیمیایی</li>
+            <li>وابستگی تقاضا به زمان‌بندی واقعی اجرای پروژه</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. STRATEGY -->
+    <section class="section" id="sec-strategy">
+      <div class="section-head"><span class="section-num">۰۷</span><h2>جمع‌بندی استراتژیک</h2></div>
+
+      <div class="subhead">آیا بازار ساخت‌وساز قزاقستان در ۲۰۲۶ جذاب است؟</div>
+      <div class="callout">
+        <p><b>پاسخ صریح: بله</b>، و نه تنها جذاب بلکه در یک نقطه عطف استثنایی قرار دارد. امضای قرارداد ۱۰ میلیارد دلاری
+        با Firebird و NVIDIA یک کاتالیزور بی‌نظیر برای رشد ساخت‌وساز صنعتی ایجاد کرده است. فرصت ورود اکنون باز است و
+        رقبای منطقه‌ای هنوز به‌طور کامل وارد بازار نشده‌اند.</p>
+      </div>
+
+      <div class="subhead">بهترین نقاط ورود برای صادرکنندگان</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>اولویت</th><th>کالا / حوزه</th><th>اقدام پیشنهادی</th><th>بازه زمانی</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge p-1">اول</span></td><td>سرامیک و کاشی</td><td>اعزام هیئت تجاری، مذاکره مستقیم با پیمانکاران اکیباستوز</td><td>فوری (۲۰۲۶)</td></tr>
+            <tr><td><span class="badge p-1">اول</span></td><td>سنگ ساختمانی</td><td>معرفی محصولات به معماران و مشاوران پروژه</td><td>فوری (۲۰۲۶)</td></tr>
+            <tr><td><span class="badge p-2">دوم</span></td><td>مواد شیمیایی ساختمانی</td><td>ارائه نمونه و کسب تأییدیه فنی</td><td>میان‌مدت (۲۰۲۶–۲۰۲۷)</td></tr>
+            <tr><td><span class="badge p-2">دوم</span></td><td>سیمان</td><td>مذاکره با کازاختلکام برای قرارداد بلندمدت</td><td>میان‌مدت (۲۰۲۶–۲۰۲۷)</td></tr>
+            <tr><td><span class="badge p-3">سوم</span></td><td>عایق صنعتی</td><td>کسب گواهینامه GOST و همکاری با نمایندگی محلی</td><td>میان‌مدت (۲۰۲۷)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subhead">مسیر ورود پیشنهادی (Market Entry Insight)</div>
+      <ol class="steps">
+        <li><b>شناسایی پیمانکاران اصلی پروژه اکیباستوز —</b> کازاختلکام به‌عنوان متولی زیرساخت، نقش کلیدی در انتخاب تأمین‌کنندگان دارد. باید از طریق اتاق بازرگانی یا نمایندگی‌های تجاری ارتباط مستقیم برقرار شود.</li>
+        <li><b>تطبیق با استانداردهای GOST —</b> کسب گواهینامه GOST برای محصولات هدف از طریق آزمایشگاه‌های معتبر.</li>
+        <li><b>استفاده از کریدور میانی —</b> بهینه‌ترین مسیر حمل‌ونقل از ایران به اکیباستوز از طریق ترکمنستان (جاده‌ای) یا دریای خزر – باکو – آستانه.</li>
+        <li><b>تأسیس نمایندگی تجاری در آستانه —</b> برای پشتیبانی فروش، پیگیری مناقصات و روابط دولتی.</li>
+        <li><b>حضور در نمایشگاه‌های ساختمانی قزاقستان —</b> بهترین بستر برای معرفی محصولات به پیمانکاران و خریداران بزرگ.</li>
+      </ol>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="report-footer">
+      <div class="fmark">— پایان گزارش —</div>
+      <p>این گزارش بر اساس اخبار رسمی منتشرشده در تاریخ ۱۵ ژوئن ۲۰۲۶ و تحلیل‌های اقتصادی تهیه شده است.
+      داده‌های این گزارش صرفاً برای مقاصد راهنمایی بوده و باید با تحقیقات میدانی تکمیل شود.</p>
+    </div>
+
+  </main>
+</div>
+
+<script>
+// ===== DATA =====
+const opportunities = [
+  {
+    id:'ceramic', name:'سرامیک و کاشی', demand:'خیلی بالا', shortage:'بالا', potential:'خیلی بالا', priority:1,
+    score: 95,
+    text: 'سرامیک و کاشی در ساخت کف، دیوار و سرویس‌های بهداشتی مجتمع‌های اداری، مسکونی و تجاری مورد نیاز است. با توجه به حجم وسیع ساخت‌وساز پروژه دره مراکز پردازش داده و پروژه‌های جانبی در اکیباستوز، تقاضا بالا خواهد بود. ایران یکی از ۵ تولیدکننده بزرگ کاشی و سرامیک جهان است و صادرات آن به آسیای مرکزی سابقه دارد اما هنوز به ظرفیت کامل نرسیده است. ارزیابی فرصت: بسیار بالا — کمبود تولید داخلی قزاقستان همراه با تقاضای رو به رشد، در کنار مزیت تنوع طرح و رنگ تولیدکنندگان ایرانی.',
+    stats: [['اولویت ورود','اول'],['رقبای اصلی','چین، ترکیه'],['افق تقاضا','۲۰۲۶–۲۰۲۸']]
+  },
+  {
+    id:'stone', name:'سنگ ساختمانی', demand:'بالا', shortage:'خیلی بالا', potential:'خیلی بالا', priority:1,
+    score: 92,
+    text: 'مراکز داده مدرن و پروژه‌های صنعتی بزرگ در فضاهای اداری، ورودی‌ها و نماهای ساختمانی از سنگ‌های طبیعی مانند مرمر، تراورتن و گرانیت استفاده می‌کنند. همچنین کارکنان پروژه و سرمایه‌گذاران بین‌المللی نیاز به محیط‌کار و اقامتگاه باکیفیت دارند. قزاقستان تولیدکننده مهم سنگ طبیعی نیست و این بازار کاملاً وابسته به واردات است. ایران یکی از بزرگ‌ترین تولیدکنندگان مرمر و تراورتن در جهان است. پتانسیل صادراتی بالا و رقابت‌پذیر است؛ رقبا چین و ترکیه هستند، اما ایران از لحاظ قیمت و مسیر حمل مزیت دارد.',
+    stats: [['اولویت ورود','اول'],['رقبای اصلی','چین، ترکیه'],['افق تقاضا','۲۰۲۶–۲۰۲۸']]
+  },
+  {
+    id:'chem', name:'مواد شیمیایی ساختمانی', demand:'بالا', shortage:'بالا', potential:'بالا', priority:2,
+    score: 80,
+    text: 'افزودنی‌های بتن، رزین‌های ضدآب، چسب‌های ساختمانی، رنگ‌های صنعتی و پوشش‌های محافظ از جمله نیازهای اصلی پروژه‌های صنعتی بزرگ هستند. تولید داخلی قزاقستان در این حوزه بسیار محدود است. ایران دارای صنعت پتروشیمی توسعه‌یافته و تولیدکنندگان مواد شیمیایی ساختمانی معتبر است. این بازار کمتر شناخته‌شده برای صادرکنندگان ایرانی است، اما با پتانسیل قابل‌توجه.',
+    stats: [['اولویت ورود','دوم'],['رقبای اصلی','روسیه، چین'],['افق تقاضا','۲۰۲۶–۲۰۲۷']]
+  },
+  {
+    id:'insulation', name:'عایق حرارتی و صوتی', demand:'بالا', shortage:'خیلی بالا', potential:'متوسط', priority:2,
+    score: 75,
+    text: 'این یکی از حساس‌ترین نیازهای پروژه دره مراکز پردازش داده است. مراکز داده گرمای فوق‌العاده‌ای تولید می‌کنند و عایق‌بندی دقیق از اهمیت حیاتی برخوردار است. در پروژه‌ای با ۱۰۰ هزار چیپ GPU، نیاز به سیستم‌های عایق‌بندی صنعتی بسیار بالا است. عایق‌های صنعتی با مشخصات فنی بالا عمدتاً وارداتی هستند. فرصت خوبی برای تولیدکنندگان ایرانی دارای گواهینامه‌های بین‌المللی وجود دارد؛ پیشنهاد می‌شود از طریق همکاری با شرکت‌های اروپایی یا آمریکایی برای تأمین نیازهای تخصصی اقدام شود.',
+    stats: [['اولویت ورود','دوم'],['رقبای اصلی','اروپا، روسیه'],['افق تقاضا','۲۰۲۶–۲۰۲۷']]
+  },
+  {
+    id:'cement', name:'سیمان و کلینکر', demand:'خیلی بالا', shortage:'متوسط', potential:'بالا', priority:2,
+    score: 78,
+    text: 'سیمان به‌عنوان مصالح پایه در هر پروژه ساختمانی صنعتی مورد نیاز است. پروژه اکیباستوز شامل احداث سالن‌های سرور، ساختمان‌های اداری، جاده‌های دسترسی و تأسیسات جانبی است که حجم مصرف سیمان را به‌طور قابل توجهی افزایش می‌دهد. تقاضای تخمینی برای پروژه‌های صنعتی در این مقیاس معمولاً ۵۰۰ هزار تا یک میلیون تن سیمان است. ظرفیت داخلی قزاقستان محدود به چند کارخانه بزرگ است و در اوج اجرای پروژه کمبود احتمالی وجود دارد. ایران با چندین کارخانه بزرگ سیمان در غرب، شمال‌غرب و شمال‌شرق کشور و مسیر حمل زمینی از طریق ترکمنستان، قابلیت رقابتی دارد.',
+    stats: [['اولویت ورود','دوم'],['تقاضای تخمینی','۵۰۰هزار–۱میلیون تن'],['افق تقاضا','۲۰۲۶–۲۰۲۷']]
+  },
+  {
+    id:'pipes', name:'لوله و اتصالات', demand:'بالا', shortage:'متوسط', potential:'متوسط تا بالا', priority:3,
+    score: 65,
+    text: 'سیستم‌های لوله‌کشی آب و فاضلاب، خنک‌سازی مراکز داده و شبکه‌های آتش‌نشانی از نیازهای اصلی پروژه هستند. مراکز داده به سیستم‌های پیشرفته خنک‌سازی آبی نیاز دارند. بازار لوله‌های پلاستیکی (PVC، HDPE، PPR) نسبتاً رقابتی است؛ لوله‌های فولادی در قزاقستان تولید می‌شود اما نیاز به مقاطع خاص وارداتی دارد. فرصت ایران برای لوله‌های پلاستیکی صنعتی متوسط تا بالا ارزیابی می‌شود.',
+    stats: [['اولویت ورود','سوم'],['رقبای اصلی','تولید داخلی، چین'],['افق تقاضا','۲۰۲۶–۲۰۲۸']]
+  },
+  {
+    id:'glass', name:'شیشه ساختمانی', demand:'متوسط', shortage:'بالا', potential:'متوسط', priority:3,
+    score: 60,
+    text: 'مراکز داده مدرن از شیشه‌های تخصصی با خواص حرارتی و صوتی در نمای ساختمانی استفاده می‌کنند. قزاقستان تولیدکننده مهم شیشه ساختمانی نیست و این بازار تقریباً به‌طور کامل وابسته به واردات است. رقبای اصلی روسیه، چین و اوکراین هستند (که با توجه به تحولات اخیر تضعیف شده است). فرصت برای ایران متوسط ارزیابی می‌شود و نیازمند سرمایه‌گذاری در خطوط تولید صادراتی است.',
+    stats: [['اولویت ورود','سوم'],['رقبای اصلی','روسیه، چین'],['افق تقاضا','۲۰۲۷–۲۰۲۸']]
+  },
+  {
+    id:'aluminum', name:'آلومینیوم ساختمانی', demand:'متوسط', shortage:'بالا', potential:'متوسط', priority:3,
+    score: 58,
+    text: 'آلومینیوم ساختمانی و پروفیل‌های تخصصی (درب، پنجره و سازه‌های سبک) اغلب وارداتی هستند، در حالی که قزاقستان از لحاظ فولاد نسبتاً خودکفاست. سازه‌های فلزی پیش‌ساخته برای مراکز داده نیز تقاضای بالایی دارند. فرصت خوبی برای صادرکنندگان ایرانی در این حوزه وجود دارد.',
+    stats: [['اولویت ورود','سوم'],['رقبای اصلی','ترکیه، چین'],['افق تقاضا','۲۰۲۷–۲۰۲۸']]
+  },
+  {
+    id:'metals', name:'فلزات ساختمانی پایه', demand:'بالا', shortage:'پایین', potential:'پایین', priority:4,
+    score: 35,
+    text: 'قزاقستان در میلگرد و تیرآهن نسبتاً خودکفاست و رقابت با تولیدکنندگان داخلی این کشور در این حوزه بالاست. فرصت صادراتی برای ایران در این رده محدودتر از سایر کالاهاست و اولویت پایین‌تری دارد.',
+    stats: [['اولویت ورود','چهارم'],['رقبای اصلی','تولید داخلی قزاقستان'],['افق تقاضا','محدود']]
+  },
+  {
+    id:'gypsum', name:'گچ و پودرهای معدنی', demand:'متوسط', shortage:'محدود', potential:'متوسط', priority:3,
+    score: 55,
+    text: 'ظرفیت تولید داخلی گچ و پودرهای معدنی در قزاقستان محدود است. در صورت رشد سریع تقاضای ساخت‌وساز در منطقه اکیباستوز، احتمال افزایش واردات وجود دارد؛ فرصتی متوسط برای تأمین‌کنندگان منطقه‌ای.',
+    stats: [['اولویت ورود','سوم'],['رقبای اصلی','روسیه'],['افق تقاضا','۲۰۲۶–۲۰۲۷']]
+  }
+];
+
+const demandRank = {'خیلی بالا':4,'بالا':3,'متوسط':2,'پایین':1,'محدود':1};
+const priorityLabel = {1:'اول',2:'دوم',3:'سوم',4:'چهارم'};
+const priorityClass = {1:'p-1',2:'p-2',3:'p-3',4:'p-4'};
+function badgeClassFor(val){
+  if(val==='خیلی بالا') return 'b-vhigh';
+  if(val==='بالا') return 'b-high';
+  if(val==='متوسط' || val==='متوسط تا بالا') return 'b-med';
+  return 'b-low';
+}
+
+// ===== Build opportunity cards (top 6 by score) =====
+const grid = document.getElementById('oppGrid');
+const sortedForCards = [...opportunities].sort((a,b)=>b.score-a.score).slice(0,6);
+sortedForCards.forEach(o=>{
+  const card = document.createElement('div');
+  card.className = 'opp-card';
+  card.dataset.id = o.id;
+  card.innerHTML = `
+    <div class="oc-top">
+      <h4>${o.name}</h4>
+      <span class="oc-priority">اولویت ${priorityLabel[o.priority]}</span>
+    </div>
+    <div class="oc-bar-track"><div class="oc-bar-fill" style="width:${o.score}%"></div></div>
+    <div class="oc-bar-label">امتیاز فرصت صادراتی: ${o.score}/100</div>
+  `;
+  card.addEventListener('click', ()=> showDetail(o.id));
+  grid.appendChild(card);
+});
+
+function showDetail(id){
+  const o = opportunities.find(x=>x.id===id);
+  document.querySelectorAll('.opp-card').forEach(c=> c.classList.toggle('active', c.dataset.id===id));
+  const detail = document.getElementById('oppDetail');
+  detail.innerHTML = `
+    <h3>${o.name}</h3>
+    <p>${o.text}</p>
+    <div class="opp-detail-stats">
+      ${o.stats.map(s=>`<div class="ods"><span class="l">${s[0]}</span><span class="v">${s[1]}</span></div>`).join('')}
+    </div>
+  `;
+  detail.classList.add('show');
+}
+showDetail(sortedForCards[0].id);
+
+// ===== Build sortable table =====
+const tbody = document.getElementById('oppTableBody');
+let currentSort = {key:'priority', dir:1};
+
+function renderTable(){
+  let rows = [...opportunities];
+  rows.sort((a,b)=>{
+    let av, bv;
+    if(currentSort.key==='name'){ av=a.name; bv=b.name; return currentSort.dir * av.localeCompare(bv,'fa'); }
+    if(currentSort.key==='priority'){ av=a.priority; bv=b.priority; return currentSort.dir*(av-bv); }
+    if(currentSort.key==='demand'){ av=demandRank[a.demand]||0; bv=demandRank[b.demand]||0; return currentSort.dir*(bv-av); }
+    if(currentSort.key==='shortage'){ av=demandRank[a.shortage]||0; bv=demandRank[b.shortage]||0; return currentSort.dir*(bv-av); }
+    if(currentSort.key==='potential'){ av=demandRank[a.potential]||0; bv=demandRank[b.potential]||0; return currentSort.dir*(bv-av); }
+    return 0;
+  });
+  tbody.innerHTML = rows.map(o=>`
+    <tr>
+      <td>${o.name}</td>
+      <td><span class="badge ${badgeClassFor(o.demand)}">${o.demand}</span></td>
+      <td><span class="badge ${badgeClassFor(o.shortage)}">${o.shortage}</span></td>
+      <td><span class="badge ${badgeClassFor(o.potential)}">${o.potential}</span></td>
+      <td><span class="badge ${priorityClass[o.priority]}">${priorityLabel[o.priority]}</span></td>
+    </tr>
+  `).join('');
+}
+renderTable();
+
+document.querySelectorAll('#oppTable th').forEach(th=>{
+  th.addEventListener('click', ()=>{
+    const key = th.dataset.key;
+    if(currentSort.key===key){ currentSort.dir *= -1; } else { currentSort = {key, dir:1}; }
+    renderTable();
+  });
+});
+
+// ===== Accordion =====
+document.querySelectorAll('#supplyAcc .acc-head').forEach(head=>{
+  head.addEventListener('click', ()=>{
+    const item = head.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('#supplyAcc .acc-item').forEach(i=> i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+  });
+});
+// open first by default
+document.querySelector('#supplyAcc .acc-item').classList.add('open');
+
+// ===== Capacity bars animate on view =====
+const capObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.querySelectorAll('.cap-fill').forEach(fill=>{
+        fill.style.width = fill.dataset.w + '%';
+      });
+      capObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold: 0.3});
+capObserver.observe(document.getElementById('capViz'));
+
+// ===== Scroll progress =====
+const progressFill = document.getElementById('progress-fill');
+window.addEventListener('scroll', ()=>{
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+  progressFill.style.width = scrolled + '%';
+});
+
+// ===== Scroll-spy nav =====
+const sections = document.querySelectorAll('.section[id]');
+const navLinks = document.querySelectorAll('#navlist a');
+const spyObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    const id = entry.target.id;
+    const link = document.querySelector(`#navlist a[href="#${id}"]`);
+    if(entry.isIntersecting){
+      navLinks.forEach(l=>l.classList.remove('active'));
+      if(link) link.classList.add('active');
+    }
+  });
+}, {rootMargin: '-15% 0px -70% 0px', threshold: 0});
+sections.forEach(s=> spyObserver.observe(s));
+
+// ===== Mobile nav toggle =====
+const navToggle = document.getElementById('navToggle');
+const sidebar = document.getElementById('sidebar');
+if(navToggle){
+  navToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+  navLinks.forEach(l=> l.addEventListener('click', ()=> sidebar.classList.remove('open')));
+}
+
+</script>
+</body>
+</html>
